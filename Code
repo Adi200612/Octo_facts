@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octopus Fact Generator</title>
+    <style>
+        /* styles.css */
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa; /* Light blue background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://example.com/ocean-background.jpg'); /* Replace with a suitable ocean background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            text-align: center;
+            width: 350px;
+            backdrop-filter: blur(10px); /* Blurs the background behind the container */
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #00796b; /* Teal color */
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .fact {
+            font-size: 20px;
+            color: #004d40; /* Darker teal */
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .description {
+            font-size: 18px;
+            color: #00695c; /* Medium teal */
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #009688; /* Teal button */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #00796b; /* Darker teal on hover */
+        }
+
+        button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Octopus Fact Generator</h1>
+        <div class="fact" id="fact"></div>
+        <div class="description" id="description"></div>
+        <button id="generate">Get Random Fact</button>
+    </div>
+    <script>
+        const facts = {
+            "octopus_fun_facts": [
+                {
+                    "fact": "Colorful Communication",
+                    "description": "Octopuses can change their skin color and texture not just for camouflage but also to communicate with each other. They can display vibrant colors to signal aggression or attraction."
+                },
+                {
+                    "fact": "Brainy Creatures",
+                    "description": "An octopus has a central brain and a mini brain in each of its eight arms, allowing for complex movements and problem-solving abilities. This decentralized nervous system enables them to multitask effectively."
+                },
+                {
+                    "fact": "Ink Defense",
+                    "description": "When threatened, octopuses can release a cloud of ink to confuse predators and make a quick escape. The ink contains a substance that can dull a predator's sense of smell."
+                },
+                {
+                    "fact": "Taste with Their Arms",
+                    "description": "Octopus arms are lined with sensitive suckers that can taste what they touch. This helps them identify food and navigate their environment."
+                },
+                {
+                    "fact": "Master of Escape",
+                    "description": "Octopuses are known for their incredible escape skills. They can squeeze through any opening larger than their beak, which is the only hard part of their body."
+                },
+                {
+                    "fact": "Short Mating Ritual",
+                    "description": "Male octopuses have a specialized arm called a hectocotylus that they use to transfer sperm to the female. After mating, males often die shortly after, while females care for their eggs until they hatch."
+                },
+                {
+                    "fact": "Unique Defense Mechanism",
+                    "description": "Some octopus species can mimic other marine animals, such as lionfish or flatfish, to avoid predators. This mimicry helps them blend into their surroundings."
+                },
+                {
+                    "fact": "Giant Species",
+                    "description": "The giant Pacific octopus can weigh over 100 pounds (45 kg) and has an arm span of up to 14 feet (4.3 meters), making it one of the largest octopus species in the world."
+                },
+                {
+                    "fact": "Nocturnal Hunters",
+                    "description": "Most octopuses are nocturnal, meaning they are active at night. They use their excellent eyesight to hunt for prey in the dark."
+                },
+                {
+                    "fact": "Lonely Creatures",
+                    "description": "Octopuses are generally solitary animals. They prefer to live alone and are territorial, often defending their dens from other octopuses."
+                }
+            ]
+        };
+
+        function getRandomFact() {
+            const allFacts = facts.octopus_fun_facts;
+            const randomIndex = Math.floor(Math.random() * allFacts.length);
+            return allFacts[randomIndex];
+        }
+
+        document.getElementById('generate').addEventListener('click', function() {
+            const randomFact = getRandomFact();
+            document.getElementById('fact').innerText = randomFact.fact;
+            document.getElementById('description').innerText = randomFact.description;
+        });
+    </script>
+</body>
+</html>
